@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+
+    <button id="n1">Click me</button>
+
+    <input id="tekst" type="text">
+    <button id="n2">Delete Me</button>
+
+    <script>
+       
+        var button_One = document.querySelector("#n1");
+        button_One.addEventListener("click", uitvoeren);
+
+        var button_Two = document.querySelector("#n2");
+        button_Two.addEventListener("click", deleten);
+        var tekst= document.querySelector("#tekst");
+        
+
+        var list= document.querySelector("ul");
+        var x=0;
+
+        function uitvoeren(){
+            x++;
+            var newList= document.createElement("li");
+            newList.innerHTML= x + ". Lorem ipsum ";
+            newList.setAttribute("class", "list-item-" + x);
+            list.appendChild(newList);
+        }
+
+        function deleten(){
+            var waarde=tekst.value;
+            var remove= document.querySelector(".list-item-" +waarde);
+            remove.parentNode.removeChild(remove);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <p> Title</p>
+    <p> <input type="text" name="titel" id="titel"></p>
+     Todo <br> <textarea name="todo" id="todo" cols="30" rows="10"></textarea> <br>
+     <p><button name="toevoegen" id="toevoegen">Toevoegen</button></p>
+     <ul id="productenlijst"></ul>
+ 
+     <script>
+         var titel=document.querySelector("#titel");
+         var todo=document.querySelector("#todo");
+         var productenlijst=document.querySelector("#productenlijst");
+
+         //verwijderen de onclick in onze html en definieren onze button in onze Javascript
+         var button = document.querySelector("button");
+
+
+         button.addEventListener("click", uitvoeren);
+        
+         function uitvoeren(){
+             var object= {
+             title: titel.value,
+             beschrijving: todo.value,
+            }
+             
+             var span=document.createElement("span");
+             var li=document.createElement("li");
+             var strong=document.createElement("strong");
+             
+            //  var first_part=strong.appendChild(array[i].title);
+            strong.innerHTML=object.title+" ";
+            li.appendChild(strong);
+            span.innerHTML=object.beschrijving;
+            li.appendChild(span);
+            productenlijst.appendChild(li);
+
+
+             
+         }
+     </script>
+</body>
+</html>
